@@ -33,7 +33,7 @@ export default function Home() {
 				<Input
 					placeholder='Name'
 					value={name}
-					className='mr-2'
+					className='mr-2 text-base'
 					onChange={handleNameChange}
 				/>
 				<Button onClick={handleAddName}>Add Name</Button>
