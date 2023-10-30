@@ -10,6 +10,7 @@ export default function Home() {
 	const [amounts, setAmounts] = useState<number[]>([0])
 
 	const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		e.preventDefault()
 		setName(e.target.value)
 	}
 
@@ -23,13 +24,13 @@ export default function Home() {
 	}
 
 	return (
-		<div className='flex flex-col items-center'>
+		<div>
 			<div className='flex flex-col items-center'>
 				<p className='text-4xl mt-12'>Pay me back</p>
 				<p className='text-xl mt-4'>Enter names below to start</p>
 			</div>
 
-			<div className='flex flex-row mt-4'>
+			<div className='flex mt-4 mx-6'>
 				<Input
 					placeholder='Name'
 					value={name}
@@ -38,12 +39,12 @@ export default function Home() {
 				/>
 				<Button onClick={handleAddName}>Add Name</Button>
 			</div>
-			<div className='mt-2'>
+			<div className='mt-4 ml-12'>
 				<ul>
 					{names.map((name, index) => (
-						<div key={index} className='flex flex-row'>
+						<div key={index} className='flex'>
 							<Button
-								className='ml-2 p-3 h-3 mr-2'
+								className='p-3 h-3 mr-2 bg-red-500 text-white'
 								onClick={() => {
 									handleRemoveName(index)
 								}}
@@ -55,7 +56,6 @@ export default function Home() {
 					))}
 				</ul>
 			</div>
-			<div></div>
 		</div>
 	)
 }
